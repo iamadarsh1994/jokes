@@ -3,16 +3,19 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
-import Header from './components/Header'
+// import Header from './components/Header'
 
 
 function App() {
   // const [count, setCount] = useState(0)
   const [jokes, setJokes] = useState(null)
   const [joked, setDadJoke] = useState(null)
-//http://localhost:3000/api/jokes or use proxy for full url check vite config
+
+  // or use proxy for full url check vite config
   const Jokes = async () => {
-  const res = await axios.get("api/jokes")
+  const API_URL = import.meta.env.VITE_API_URL;
+  const res = await axios.get(`${API_URL}/api/jokes`);
+
   // console.log(res.data) 
   
   const randomIndex = Math.floor(Math.random() * res.data.length)
