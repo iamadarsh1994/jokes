@@ -17,7 +17,7 @@ function App() {
   const res = await axios.get(`${API_URL}/api/jokes`);
 
   // console.log(res.data) 
-  
+  //
   const randomIndex = Math.floor(Math.random() * res.data.length)
   
   const randomJoke = (res.data[randomIndex])
