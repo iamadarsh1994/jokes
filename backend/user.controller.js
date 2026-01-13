@@ -2,7 +2,7 @@ import User from "./models.js";
 import zod from "zod";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import JWT_SECRET from "./config.js";
+// import JWT_SECRET from "./config.js";
 
 const signupBody = zod.object({
   email: zod.string(),
@@ -32,7 +32,7 @@ export const Signup = async (req, res) => {
       password: hashedPassword,
     });
     const userId = user._id;
-    const token = jwt.sign({ userId }, JWT_SECRET, { expiresIn: "7d" });
+    const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
     return res.json({
       message: "User registered Successfully",
       token: token,
@@ -78,7 +78,7 @@ export const Login = async (req, res) => {
       {
         userId: user._id,
       },
-      JWT_SECRET,
+      process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
     return res.json({ token: token, expiresIn: "7d" });

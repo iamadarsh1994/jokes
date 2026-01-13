@@ -1,3 +1,3 @@
-const JWT_SECRET = "Adarsh123"
+// const JWT_SECRET = "Adarsh123"
 
-export default JWT_SECRET;
+// export default JWT_SECRET;
