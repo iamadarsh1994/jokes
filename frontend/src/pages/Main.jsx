@@ -3,7 +3,7 @@ import axios from "axios";
 import Joey from "../assets/Joey.gif";
 import RandomGif from "../components/RandomGif";
 
-import Fix from "./fix";
+import Fix from "./Fix.jsx";
 
 function Main() {
   const [jokes, setJokes] = useState(null);
